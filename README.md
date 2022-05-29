@@ -9,4 +9,4 @@ This project is the second project for the professional web development scholars
 - Current Weather API 2.5 from OpenWeatherMap
 - Coordinates by zip/post code from OpenWeatherMap
 ## App
-![Application UI](app.png)
+![UI](app.png)
