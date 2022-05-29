@@ -36,6 +36,7 @@ app.post('/add', function (req, res) {
   projectData.date = req.body.date;
   projectData.temp = req.body.temp;
   projectData.description = req.body.description;
+  projectData.feelings = req.body.feelings;
   console.log(projectData);
   res.send(projectData);
 });

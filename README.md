@@ -6,5 +6,7 @@ This project is the second project for the professional web development scholars
 - body-parser
 ## APIs
 - Fetch from node-fetch
-- One Call API 3.0 from OpenWeatherMap
+- Current Weather API 2.5 from OpenWeatherMap
 - Coordinates by zip/post code from OpenWeatherMap
+## App
+![Application UI](app.png)

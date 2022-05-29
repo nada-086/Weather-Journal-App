@@ -43,14 +43,18 @@ const updateUI = async () => {
     const pDate = document.createElement('p');
     const pTemp = document.createElement('p');
     const pDescription = document.createElement('p');
+    const pFeel = document.createElement('p');
+
 
     pDate.innerHTML = data.date;
     pTemp.innerHTML = `${data.temp}&#8451;`;
     pDescription.innerHTML = data.description;
+    pFeel.innerHTML = data.feelings;
 
     document.getElementById("date").appendChild(pDate);
     document.getElementById("temp").appendChild(pTemp);
     document.getElementById("state").appendChild(pDescription);
+    document.getElementById("feel").appendChild(pFeel);
 
   } catch(error){
     console.log(`Error: ${error}`);
@@ -61,10 +65,11 @@ const updateUI = async () => {
 const controller = () => {
   const zip = document.getElementById('zip').value;
   const country = document.getElementById('country').value;
+  const feelings = document.getElementById('feelings').value;
   get(baseURL, zip, country, apiKey)
   .then(function (data) {
       let des = data.weather[0];
-    post("/add", { date: newDate, temp: data.main.temp, description: des.description });
+    post("/add", { date: newDate, temp: data.main.temp, description: des.description, feelings: feelings });
   })
   .then(function (newDate){
     updateUI()
