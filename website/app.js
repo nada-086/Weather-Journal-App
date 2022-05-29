@@ -1,10 +1,10 @@
 /* Global Variables */
-let apiKey = '';  // Your apiKey + "&units=imperial"
+const apiKey = '';  // Your apiKey + "&units=imperial"
 let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear()
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear()
 
 const get = async (url, zip, country, key) => {
   const res = await fetch(`${url}${zip},${country}&appid=${key}`);
@@ -66,14 +66,16 @@ const controller = () => {
   const zip = document.getElementById('zip').value;
   const country = document.getElementById('country').value;
   const feelings = document.getElementById('feelings').value;
-  get(baseURL, zip, country, apiKey)
-  .then(function (data) {
+  if (zip && country && feelings) {
+    get(baseURL, zip, country, apiKey)
+    .then(function (data) {
       let des = data.weather[0];
-    post("/add", { date: newDate, temp: data.main.temp, description: des.description, feelings: feelings });
-  })
-  .then(function (newDate){
-    updateUI()
-  })
+      post("/add", { date: newDate, temp: data.main.temp, description: des.description, feelings: feelings });
+    })
+    .then(function (newDate){
+      updateUI()
+    })
+  }
 }
 
 document.getElementById("generate").addEventListener('click', controller);
