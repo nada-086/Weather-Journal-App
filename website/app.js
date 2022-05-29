@@ -47,7 +47,7 @@ const updateUI = async () => {
 
 
     pDate.innerHTML = data.date;
-    pTemp.innerHTML = `${data.temp}&#8451;`;
+    pTemp.innerHTML = `${Math.round(data.temp)}&#8457;`;
     pDescription.innerHTML = data.description;
     pFeel.innerHTML = data.feelings;
 
