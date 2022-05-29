@@ -1,6 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
-location = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -28,30 +27,15 @@ function listening() {
   console.log(`Server is running on port ${port}`);
 }
 
-// Location Requests
-app.get('/location', function (req, res) {
-  res.send(location);
-}) 
-
-app.post('/addLocation', function (req, res) {
-  location = {
-    lat: req.body.lat,
-    lon: req.body.lon
-  }
-  req.send(location);
-})
-
 // Weather Requests
 app.get('/all', function (req, res) {
   res.send(projectData);
 });
 
-app.post('/addWeather', function (req, res) {
-  projectData = {
-    date: req.body.date,
-    temp: req.body.current.temp,
-    feel: req.body.content
-  };
+app.post('/add', function (req, res) {
+  projectData.date = req.body.date;
+  projectData.temp = req.body.temp;
+  projectData.description = req.body.description;
+  console.log(projectData);
   res.send(projectData);
 });
-

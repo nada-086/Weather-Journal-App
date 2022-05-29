@@ -1,53 +1,48 @@
 body{
-    background: #fffff8;
+    background: #c3e4ed;
+    color: #555555;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 
-.holder{
-
+.container{
+    display: flex;
 }
 
-.entry{
-    background: rgba(59, 74, 107, .4);
+.output{
+    flex: 1;
 }
 
-#entryHolder{
-
+#state{
+    display: flex;
+    align-items: center;
 }
 
-#date{
-
+#state p{
+    display: inline-block;
+    font-size: larger;
 }
 
-#temp{
-
+.ele{
+    margin-bottom: 10px;
 }
 
-#content{
-
+.zip{
+    width: 50%;
+    margin-top: 20px;
 }
 
 .headline {
-
+    display: inline;
+    font-size: 40px;
+    border-bottom:1px solid rgba(59, 74, 107, .4);
+    margin-bottom: 100px;
 }
-.title{
 
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
 label{
     display:block;
     font-size: 27px;
@@ -57,55 +52,52 @@ input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
+    color: #555555;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
+    background-color: transparent;
 }
 
-button{
-    width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
+input:focus{
+    border-bottom:#555555;
+}
+
+button {
+    background-color: #555555; /* Green */
     border: none;
-    box-shadow: 2px 4px 5px #444;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 h1{
     font-size: 36px;
 }
 
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-/* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
-textarea:focus,
 button:focus {
     outline: none;
 }
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
 
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
+.temp{
+    display: flex;
+}
+.output img{
+    margin: 20px;
+    display: inline-block;
+}
 
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
+.output .temp div{
+    background-color: rgb(152, 152, 152);
+    height: 100px;
+    padding: 10px;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+}
